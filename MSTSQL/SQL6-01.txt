@@ -1,0 +1,62 @@
+﻿-- 00_查詢目前SESSION是否有死結(鎖死)
+    SELECT r.session_id,
+    r.status AS [指令狀態],
+    r.command AS [指令類型],
+    r.wait_time/1000.0 AS [等待時間(秒)],
+    s.client_interface_name AS [連線資料庫的驅動程式],
+    s.host_name AS [電腦名稱],
+    s.program_name AS [執行程式名稱],
+    t.text AS [執行的SQL語法],
+    r.blocking_session_id AS [被鎖定卡住的session_id]
+    FROM sys.dm_exec_requests r
+    INNER JOIN sys.dm_exec_sessions s
+    ON r.session_id = s.session_id
+    CROSS APPLY sys.dm_exec_sql_text(r.sql_handle) t
+    WHERE s.is_user_process = 1;
+	
+-- 00_避免造成死結(鎖死)狀態產生
+ALTER DATABASE [wbsn-data-security] SET SINGLE_USER WITH ROLLBACK IMMEDIATE;
+ALTER DATABASE [wbsn-data-security] SET READ_COMMITTED_SNAPSHOT ON;
+ALTER DATABASE [wbsn-data-security] SET MULTI_USER;
+
+
+
+-- 01_查詢伺服器上各個資料庫的「讀取認可快照」、「快照集隔離」之狀態
+SELECT name N'資料庫', snapshot_isolation_state N'快照集隔離交易狀態',
+ snapshot_isolation_state_desc N'快照集隔離交易狀態的描述',
+ is_read_committed_snapshot_on N'啟用讀取認可快照'
+FROM sys.databases
+ORDER BY 4 DESC
+GO
+
+-- 02_啟用特定資料庫的「讀取認可快照」
+USE master
+GO
+ALTER DATABASE DB01
+    SET READ_COMMITTED_SNAPSHOT ON
+ WITH ROLLBACK IMMEDIATE;
+GO
+
+-- 03_查詢伺服器上各個資料庫的「讀取認可快照」、「快照集隔離」之狀態
+SELECT name N'資料庫', snapshot_isolation_state N'快照集隔離交易狀態',
+ snapshot_isolation_state_desc N'快照集隔離交易狀態的描述',
+ is_read_committed_snapshot_on N'啟用讀取認可快照'
+FROM sys.databases
+ORDER BY 4 DESC
+GO
+
+-- 04_關閉：特定資料庫的「讀取認可快照」
+USE master
+GO
+ALTER DATABASE DB01
+    SET READ_COMMITTED_SNAPSHOT OFF
+ WITH ROLLBACK IMMEDIATE;
+GO
+
+-- 05_查詢伺服器上各個資料庫的「讀取認可快照」、「快照集隔離」之狀態
+SELECT name N'資料庫', snapshot_isolation_state N'快照集隔離交易狀態',
+ snapshot_isolation_state_desc N'快照集隔離交易狀態的描述',
+ is_read_committed_snapshot_on N'啟用讀取認可快照'
+FROM sys.databases
+ORDER BY 4 DESC
+GO
