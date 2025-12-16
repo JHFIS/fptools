@@ -5,64 +5,121 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ForcePoint ShareList - 工具清單</title>
     <style>
-        table { border-collapse: collapse; width: 922px; height: 976px; font-family: Arial, sans-serif; }
-        td { border: 1px solid #ddd; padding: 8px; vertical-align: top; }
-        td:first-child { width: 305px; font-weight: bold; text-align: right; }
-        a { color: blue; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-        h2 { color: #333; }
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+        }
+        .container {
+            max-width: 950px;
+            margin: 0 auto;
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 0 auto;
+            display: table;
+            font-size: 14px;
+        }
+        td {
+            border: 1px solid #ddd;
+            padding: 12px 10px;
+            vertical-align: top;
+        }
+        td:first-child {
+            width: 35%;
+            font-weight: bold;
+            text-align: right;
+            background-color: #f8f9fa;
+        }
+        td:last-child {
+            width: 65%;
+        }
+        a {
+            color: #0066cc;
+            text-decoration: none;
+            word-break: break-all;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        @media (max-width: 768px) {
+            .container {
+                padding: 10px;
+                margin: 10px;
+            }
+            td {
+                padding: 8px 6px;
+                font-size: 13px;
+            }
+            td:first-child {
+                width: 40%;
+            }
+        }
     </style>
 </head>
 <body>
-    <h2>ForcePoint 工具清單</h2>
-    <table>
-        <tbody>
-            <tr><td>1. 工具完整包</td><td><a href="https://jhfis.github.io/fptools/TOOLS/FPTOOLS.zip">FPTOOLS.zip</a></td></tr>
-            <tr><td>2. 工具詳細下載清單</td><td>&nbsp;</td></tr>
-            <tr><td>2-1. 7-ZIP</td><td><a href="https://jhfis.github.io/fptools/TOOLS/7z2501-x64.exe">7z2501-x64.exe</a></td></tr>
-            <tr><td>2-2. Notepad++</td><td><a href="https://jhfis.github.io/fptools/TOOLS/npp.8.8.8.Installer.x64.exe">npp.8.8.8.Installer.x64.exe</a></td></tr>
-            <tr><td>2-3. Chrome</td><td><a href="https://jhfis.github.io/fptools/TOOLS/GoogleChromeStandaloneEnterprise64.msi">GoogleChromeStandaloneEnterprise64.msi</a></td></tr>
-            <tr><td>2-4. Edge</td><td><a href="https://jhfis.github.io/fptools/TOOLS/MicrosoftEdgeEnterpriseX64.msi">MicrosoftEdgeEnterpriseX64.msi</a></td></tr>
-            <tr><td>2-5. FireFox</td><td><a href="https://jhfis.github.io/fptools/TOOLS/FirefoxSetup133.0.exe">FirefoxSetup133.0.exe</a></td></tr>
-            <tr><td>2-6. PUTTY</td><td><a href="https://jhfis.github.io/fptools/TOOLS/putty.exe">putty.exe</a></td></tr>
-            <tr><td>2-7. MS SystemInternals Suite</td><td><a href="https://jhfis.github.io/fptools/TOOLS/SysinternalsSuite20250213.zip">SysinternalsSuite20250213.zip</a></td></tr>
-            <tr><td>2-8. SQL Server Management Studio (SSMS)</td><td><a href="https://jhfis.github.io/fptools/TOOLS/SSMS-Setup-ENUv20.2.exe">SSMS-Setup-ENUv20.2.exe</a></td></tr>
-            <tr><td>2-9. VC++ Redistributable</td><td><a href="https://jhfis.github.io/fptools/TOOLS/VCredist.x64.exe">VCredist.x64.exe</a></td></tr>
-            <tr><td>2-10. VC++ Redistributable</td><td><a href="https://jhfis.github.io/fptools/TOOLS/VCredist.x86.exe">VCredist.x86.exe</a></td></tr>
-            <tr><td>2-11. 字型檔案(安裝選擇All Users)</td><td><a href="https://jhfis.github.io/fptools/TOOLS/ARIALUNI.TTF">ARIALUNI.TTF</a></td></tr>
-            <tr><td>2-12. FORCEPOINT DLP POLICY ALL</td><td><a href="https://jhfis.github.io/fptools/TOOLS/FPDLPPOLICY.zip">FPDLPPOLICY.zip</a></td></tr>
-            <tr><td>3. 安裝指令</td><td>&nbsp;</td></tr>
-            <tr><td>3-1. 安裝dotNETFX35與TelnetClient</td><td><a href="https://jhfis.github.io/fptools/TOOLS/InstalldotNETFX35TelentClinetPSCMD.txt">Install_dotNETFX35_TelentClinet_PS_CMD.txt</a></td></tr>
-            <tr><td>3-2. Chrome Extension V2</td><td><a href="https://jhfis.github.io/fptools/TOOLS/ExtensionManifestV2Availability.reg.txt">ExtensionManifestV2Availability.reg.txt</a></td></tr>
-            <tr><td>3-3. MSSQL修改主機名稱</td><td><a href="https://jhfis.github.io/fptools/TOOLS/MSSQLCHANGEHOSTNAME.sql">MSSQL_CHANGE_HOSTNAME.sql</a></td></tr>
-            <tr><td>3-4. MSSQL修改主機名稱</td><td><a href="https://jhfis.github.io/fptools/TOOLS/SQLSERVERCHANGEHOSTNAME.txt">SQL_SERVER_CHANGE_HOSTNAME.txt</a></td></tr>
-            <tr><td>3-5. WSG PreInstall</td><td><a href="https://jhfis.github.io/fptools/TOOLS/WSGPreInstall2024.txt">WSG_PreInstall_2024.txt</a></td></tr>
-            <tr><td>3-6. WSG PreInstall (SH)</td><td><a href="https://jhfis.github.io/fptools/TOOLS/WSGPreInstall2024.sh">WSG_PreInstall_2024.sh</a></td></tr>
-            <tr><td>4. FORCEPOINT DLP 政策清單</td><td>&nbsp;</td></tr>
-            <tr><td>4-00. 政策名稱</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/00PolicyName.txt">00PolicyName.txt</a></td></tr>
-            <tr><td>4-01. 臺灣姓名</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/01TaiwanName.txt">01TaiwanName.txt</a></td></tr>
-            <tr><td>4-02. 臺灣手機號碼</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/02TaiwanMobile.txt">02TaiwanMobile.txt</a></td></tr>
-            <tr><td>4-03. 臺灣市話號碼</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/03TaiwanPhone.txt">03TaiwanPhone.txt</a></td></tr>
-            <tr><td>4-04. 臺灣地址</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/04TaiwanAddress.txt">04TaiwanAddress.txt</a></td></tr>
-            <tr><td>4-05. 生日</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/05Birthday.txt">05Birthday.txt</a></td></tr>
-            <tr><td>4-06. 臺灣車牌號碼</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/06TaiwanCARNumber.txt">06TaiwanCARNumber.txt</a></td></tr>
-            <tr><td>4-07. 婚姻</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/07Marital.txt">07Marital.txt</a></td></tr>
-            <tr><td>4-08. 新舊居留證</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/08NewUINumberCID.txt">08NewUINumberCID.txt</a></td></tr>
-            <tr><td>4-09. 銀行帳號無檢查碼加上邊界</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/09BankNumber.txt">09BankNumber.txt</a></td></tr>
-            <tr><td>5. 維護除錯相關工具</td><td>&nbsp;</td></tr>
-            <tr><td>5-01. FSM維護</td><td><a href="https://jhfis.github.io/fptools/TOOLS/fsmma.txt">fsm_ma.txt</a></td></tr>
-            <tr><td>5-02. WSG維護</td><td><a href="https://jhfis.github.io/fptools/TOOLS/wsgma.txt">wsg_ma.txt</a></td></tr>
-            <tr><td>5-03. WSG維護除錯(給客戶)</td><td><a href="https://jhfis.github.io/fptools/TOOLS/wsgpre.txt">wsg_pre.txt</a></td></tr>
-            <tr><td>5-04. Websense INI檔案</td><td><a href="https://jhfis.github.io/fptools/TOOLS/websense-ini.txt">websense-ini.txt</a></td></tr>
-            <tr><td>5-05. 修改當隔離信件釋放後通知使用者</td><td><a href="https://jhfis.github.io/fptools/TOOLS/SENDERMAILRELEASE.zip">SENDERMAILRELEASE.zip</a></td></tr>
-            <tr><td>5-06. 修正出現Error during SSL Handshake</td><td><a href="https://jhfis.github.io/JH/KB/KB000009081Proxy-error-Error-during-SSL-Handshake-with-remote-server.pdf">KB000009081.pdf</a> <a href="https://jhfis.github.io/JH/KB/KB000009081.bat.TXT">KB000009081.bat.TXT</a></td></tr>
-            <tr><td>5-07. 停用竄改跟服務Forcepoint One Endpoint工具</td><td><a href="https://jhfis.github.io/fptools/TOOLS/FPDLPEPDisableAntiTampering.txt">FPDLPEPDisableAntiTampering.txt</a> <a href="https://jhfis.github.io/fptools/TOOLS/FPDLPEPDisableAntiTampering.zip">FPDLPEPDisableAntiTampering.zip</a></td></tr>
-            <tr><td>5-08. 移除Forcepoint One Endpoint工具</td><td><a href="https://jhfis.github.io/fptools/TOOLS/UninstallF1E.zip">UninstallF1E.zip</a></td></tr>
-            <tr><td>6. MS SQL 相關指令</td><td>&nbsp;</td></tr>
-            <tr><td>6-1. 檢查MS SQL 死結(鎖死)</td><td><a href="https://jhfis.github.io/JH/MSTSQL/SQL6-01.txt">SQL6-01.txt</a></td></tr>
-            <tr><td>6-2. 備份資料庫帳號密碼01(先運行)</td><td><a href="https://jhfis.github.io/JH/MSTSQL/01BackupSQLAccount.txt">01BackupSQLAccount.txt</a> <a href="https://jhfis.github.io/JH/MSTSQL/01BackupSQLAccount.sql">01BackupSQLAccount.sql</a></td></tr>
-            <tr><td>6-3. 備份資料庫帳號密碼02(後運行)</td><td><a href="https://jhfis.github.io/JH/MSTSQL/02DisplayBackupSQLAccount.txt">02DisplayBackupSQLAccount.txt</a> <a href="https://jhfis.github.io/JH/MSTSQL/02DisplayBackupSQLAccount.sql">02DisplayBackupSQLAccount.sql</a></td></tr>
-        </tbody>
-    </table>
+    <div class="container">
+        <h2>🔧 ForcePoint 工具清單</h2>
+        <table>
+            <tbody>
+                <tr><td>1. 工具完整包</td><td><a href="https://jhfis.github.io/fptools/TOOLS/FPTOOLS.zip" target="_blank">FPTOOLS.zip</a></td></tr>
+                <tr><td>2. 工具詳細下載清單</td><td>&nbsp;</td></tr>
+                <tr><td>2-1. 7-ZIP</td><td><a href="https://jhfis.github.io/fptools/TOOLS/7z2501-x64.exe" target="_blank">7z2501-x64.exe</a></td></tr>
+                <tr><td>2-2. Notepad++</td><td><a href="https://jhfis.github.io/fptools/TOOLS/npp.8.8.8.Installer.x64.exe" target="_blank">npp.8.8.8.Installer.x64.exe</a></td></tr>
+                <tr><td>2-3. Chrome</td><td><a href="https://jhfis.github.io/fptools/TOOLS/GoogleChromeStandaloneEnterprise64.msi" target="_blank">GoogleChromeStandaloneEnterprise64.msi</a></td></tr>
+                <tr><td>2-4. Edge</td><td><a href="https://jhfis.github.io/fptools/TOOLS/MicrosoftEdgeEnterpriseX64.msi" target="_blank">MicrosoftEdgeEnterpriseX64.msi</a></td></tr>
+                <tr><td>2-5. FireFox</td><td><a href="https://jhfis.github.io/fptools/TOOLS/FirefoxSetup133.0.exe" target="_blank">FirefoxSetup133.0.exe</a></td></tr>
+                <tr><td>2-6. PUTTY</td><td><a href="https://jhfis.github.io/fptools/TOOLS/putty.exe" target="_blank">putty.exe</a></td></tr>
+                <tr><td>2-7. MS SystemInternals Suite</td><td><a href="https://jhfis.github.io/fptools/TOOLS/SysinternalsSuite20250213.zip" target="_blank">SysinternalsSuite20250213.zip</a></td></tr>
+                <tr><td>2-8. SQL Server Management Studio (SSMS)</td><td><a href="https://jhfis.github.io/fptools/TOOLS/SSMS-Setup-ENUv20.2.exe" target="_blank">SSMS-Setup-ENUv20.2.exe</a></td></tr>
+                <tr><td>2-9. VC++ Redistributable</td><td><a href="https://jhfis.github.io/fptools/TOOLS/VCredist.x64.exe" target="_blank">VCredist.x64.exe</a></td></tr>
+                <tr><td>2-10. VC++ Redistributable</td><td><a href="https://jhfis.github.io/fptools/TOOLS/VCredist.x86.exe" target="_blank">VCredist.x86.exe</a></td></tr>
+                <tr><td>2-11. 字型檔案(安裝選擇All Users)</td><td><a href="https://jhfis.github.io/fptools/TOOLS/ARIALUNI.TTF" target="_blank">ARIALUNI.TTF</a></td></tr>
+                <tr><td>2-12. FORCEPOINT DLP POLICY ALL</td><td><a href="https://jhfis.github.io/fptools/TOOLS/FPDLPPOLICY.zip" target="_blank">FPDLPPOLICY.zip</a></td></tr>
+                <tr><td>3. 安裝指令</td><td>&nbsp;</td></tr>
+                <tr><td>3-1. 安裝dotNETFX35與TelnetClient</td><td><a href="https://jhfis.github.io/fptools/TOOLS/InstalldotNETFX35TelentClinetPSCMD.txt" target="_blank">Install_dotNETFX35_TelentClinet_PS_CMD.txt</a></td></tr>
+                <tr><td>3-2. Chrome Extension V2</td><td><a href="https://jhfis.github.io/fptools/TOOLS/ExtensionManifestV2Availability.reg.txt" target="_blank">ExtensionManifestV2Availability.reg.txt</a></td></tr>
+                <tr><td>3-3. MSSQL修改主機名稱</td><td><a href="https://jhfis.github.io/fptools/TOOLS/MSSQLCHANGEHOSTNAME.sql" target="_blank">MSSQL_CHANGE_HOSTNAME.sql</a></td></tr>
+                <tr><td>3-4. MSSQL修改主機名稱</td><td><a href="https://jhfis.github.io/fptools/TOOLS/SQLSERVERCHANGEHOSTNAME.txt" target="_blank">SQL_SERVER_CHANGE_HOSTNAME.txt</a></td></tr>
+                <tr><td>3-5. WSG PreInstall</td><td><a href="https://jhfis.github.io/fptools/TOOLS/WSGPreInstall2024.txt" target="_blank">WSG_PreInstall_2024.txt</a></td></tr>
+                <tr><td>3-6. WSG PreInstall (SH)</td><td><a href="https://jhfis.github.io/fptools/TOOLS/WSGPreInstall2024.sh" target="_blank">WSG_PreInstall_2024.sh</a></td></tr>
+                <tr><td>4. FORCEPOINT DLP 政策清單</td><td>&nbsp;</td></tr>
+                <tr><td>4-00. 政策名稱</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/00PolicyName.txt" target="_blank">00PolicyName.txt</a></td></tr>
+                <tr><td>4-01. 臺灣姓名</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/01TaiwanName.txt" target="_blank">01TaiwanName.txt</a></td></tr>
+                <tr><td>4-02. 臺灣手機號碼</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/02TaiwanMobile.txt" target="_blank">02TaiwanMobile.txt</a></td></tr>
+                <tr><td>4-03. 臺灣市話號碼</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/03TaiwanPhone.txt" target="_blank">03TaiwanPhone.txt</a></td></tr>
+                <tr><td>4-04. 臺灣地址</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/04TaiwanAddress.txt" target="_blank">04TaiwanAddress.txt</a></td></tr>
+                <tr><td>4-05. 生日</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/05Birthday.txt" target="_blank">05Birthday.txt</a></td></tr>
+                <tr><td>4-06. 臺灣車牌號碼</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/06TaiwanCARNumber.txt" target="_blank">06TaiwanCARNumber.txt</a></td></tr>
+                <tr><td>4-07. 婚姻</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/07Marital.txt" target="_blank">07Marital.txt</a></td></tr>
+                <tr><td>4-08. 新舊居留證</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/08NewUINumberCID.txt" target="_blank">08NewUINumberCID.txt</a></td></tr>
+                <tr><td>4-09. 銀行帳號無檢查碼加上邊界</td><td><a href="https://jhfis.github.io/fptools/DLPPOLICY/09BankNumber.txt" target="_blank">09BankNumber.txt</a></td></tr>
+                <tr><td>5. 維護除錯相關工具</td><td>&nbsp;</td></tr>
+                <tr><td>5-01. FSM維護</td><td><a href="https://jhfis.github.io/fptools/TOOLS/fsmma.txt" target="_blank">fsm_ma.txt</a></td></tr>
+                <tr><td>5-02. WSG維護</td><td><a href="https://jhfis.github.io/fptools/TOOLS/wsgma.txt" target="_blank">wsg_ma.txt</a></td></tr>
+                <tr><td>5-03. WSG維護除錯(給客戶)</td><td><a href="https://jhfis.github.io/fptools/TOOLS/wsgpre.txt" target="_blank">wsg_pre.txt</a></td></tr>
+                <tr><td>5-04. Websense INI檔案</td><td><a href="https://jhfis.github.io/fptools/TOOLS/websense-ini.txt" target="_blank">websense-ini.txt</a></td></tr>
+                <tr><td>5-05. 修改當隔離信件釋放後通知使用者</td><td><a href="https://jhfis.github.io/fptools/TOOLS/SENDERMAILRELEASE.zip" target="_blank">SENDERMAILRELEASE.zip</a></td></tr>
+                <tr><td>5-06. 修正出現Error during SSL Handshake</td><td><a href="https://jhfis.github.io/JH/KB/KB000009081Proxy-error-Error-during-SSL-Handshake-with-remote-server.pdf" target="_blank">KB000009081.pdf</a> <a href="https://jhfis.github.io/JH/KB/KB000009081.bat.TXT" target="_blank">KB000009081.bat.TXT</a></td></tr>
+                <tr><td>5-07. 停用竄改跟服務Forcepoint One Endpoint工具</td><td><a href="https://jhfis.github.io/fptools/TOOLS/FPDLPEPDisableAntiTampering.txt" target="_blank">FPDLPEPDisableAntiTampering.txt</a> <a href="https://jhfis.github.io/fptools/TOOLS/FPDLPEPDisableAntiTampering.zip" target="_blank">FPDLPEPDisableAntiTampering.zip</a></td></tr>
+                <tr><td>5-08. 移除Forcepoint One Endpoint工具</td><td><a href="https://jhfis.github.io/fptools/TOOLS/UninstallF1E.zip" target="_blank">UninstallF1E.zip</a></td></tr>
+                <tr><td>6. MS SQL 相關指令</td><td>&nbsp;</td></tr>
+                <tr><td>6-1. 檢查MS SQL 死結(鎖死)</td><td><a href="https://jhfis.github.io/JH/MSTSQL/SQL6-01.txt" target="_blank">SQL6-01.txt</a></td></tr>
+                <tr><td>6-2. 備份資料庫帳號密碼01(先運行)</td><td><a href="https://jhfis.github.io/JH/MSTSQL/01BackupSQLAccount.txt" target="_blank">01BackupSQLAccount.txt</a> <a href="https://jhfis.github.io/JH/MSTSQL/01BackupSQLAccount.sql" target="_blank">01BackupSQLAccount.sql</a></td></tr>
+                <tr><td>6-3. 備份資料庫帳號密碼02(後運行)</td><td><a href="https://jhfis.github.io/JH/MSTSQL/02DisplayBackupSQLAccount.txt" target="_blank">02DisplayBackupSQLAccount.txt</a> <a href="https://jhfis.github.io/JH/MSTSQL/02DisplayBackupSQLAccount.sql" target="_blank">02DisplayBackupSQLAccount.sql</a></td></tr>
+            </tbody>
+        </table>
+    </div>
 </body>
 </html>
