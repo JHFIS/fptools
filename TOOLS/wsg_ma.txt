@@ -1,0 +1,149 @@
+#!/bin/bash
+rm -fr /tmp/wsg_ma/
+mkdir /tmp/wsg_ma
+hostname > /tmp/wsg_ma/wsg_maetc_hostname.txt
+export > /tmp/wsg_ma/export.txt
+env > /tmp/wsg_ma/env.txt
+cat /etc/issue | head -1 > /tmp/wsg_ma/etc_issue.txt
+uname -a > /tmp/wsg_ma/etc_uname.txt
+ifconfig > /tmp/wsg_ma/etc_ifconfig.txt
+cat /etc/sysconfig/network-scripts/ifcfg-* > /tmp/wsg_ma/ifcfg-config.txt
+route > /tmp/wsg_ma/route.txt
+iptables -L > /tmp/wsg_ma/iptables.txt
+ip6tables -L > /tmp/wsg_ma/ip6tables.txt
+chkconfig --list > /tmp/wsg_ma/chkconfiglist.txt
+cat /etc/networks > /tmp/wsg_ma/etc_networks.txt
+cat /etc/sysconfig/network > /tmp/wsg_ma/etc_sysconfig_network.txt
+cat /etc/resolv.conf > /tmp/wsg_ma/etc_resolv.conf.txt
+cat /etc/sysctl.conf > /tmp/wsg_ma/etc_sysctl.conf.txt
+sysctl -a > /tmp/wsg_ma/sysctl.txt
+systemctl --all > /tmp/wsg_ma/systemctl_all.txt
+systemctl list-unit-files > /tmp/wsg_ma/systemctl_list-unit-files.txt
+cat /etc/profile > /tmp/wsg_ma/etc_profile.txt
+cat /etc/hosts > /tmp/wsg_ma/etc_hosts.txt
+cat /etc/hosts.allow > /tmp/wsg_ma/etc_hosts.allow.txt
+cat /etc/hosts.deny > /tmp/wsg_ma/etc_hosts.deny.txt
+cat /etc/ssh/sshd_config > /tmp/wsg_ma/etc_ssh_sshd_config.txt
+ps aux > /tmp/wsg_ma/psaux.txt
+pstree -a -c -g -l -p -s -S -u > /tmp/wsg_ma/pstree.txt
+top -b -n 1 > /tmp/wsg_ma/top.txt
+cat /proc/cpuinfo > /tmp/wsg_ma/cpuinfo.txt
+cat /proc/meminfo > /tmp/wsg_ma/meminfo.txt
+free > /tmp/wsg_ma/free.txt
+vmstat > /tmp/wsg_ma/vmstat.txt
+iostat -d -k 1 10 > /tmp/wsg_ma/iostat.txt
+netstat -anolp > /tmp/wsg_ma/netstat.txt
+arp -a > /tmp/wsg_ma/arp.txt
+lsof -i > /tmp/wsg_ma/lsof.txt
+lsmod > /tmp/wsg_ma/lsmod.txt
+lspci > /tmp/wsg_ma/lspci.txt
+dmesg -T > /tmp/wsg_ma/dmesg.txt
+fdisk -l > /tmp/wsg_ma/fdisk.txt
+df -h > /tmp/wsg_ma/dfh.txt
+cat /etc/fstab > /tmp/wsg_ma/etc_fstab.txt
+rpm -qa | sort | uniq > /tmp/wsg_ma/rpmqa.txt
+last > /tmp/wsg_ma/last.txt
+crontab -l > /tmp/wsg_ma/cronjob_root.txt
+cat /var/spool/mail/root > /tmp/wsg_ma/email_message_root.txt
+cat /root/.bash_history > /tmp/wsg_ma/history_root.txt
+cat /var/log/messages* | sort | uniq > /tmp/wsg_ma/varlog_messages_uniq.txt
+cp /var/log/messages /tmp/wsg_ma/varlog_messages.today.txt
+cat /var/log/dracut.log* | sort -M -r > /tmp/wsg_ma/dracut.log.txt
+cat /var/log/anaconda.ifcfg.log > /tmp/wsg_ma/anaconda.ifcfg.log.txt
+cat /var/log/anaconda.log > /tmp/wsg_ma/anaconda.log.txt
+cat /var/log/anaconda.program.log > /tmp/wsg_ma/anaconda.program.log.txt
+cat /var/log/anaconda.storage.log > /tmp/wsg_ma/anaconda.storage.log.txt
+cat /var/log/anaconda.syslog > /tmp/wsg_ma/anaconda.syslog.txt
+cat /var/log/anaconda.yum.log > /tmp/wsg_ma/anaconda.yum.log.txt
+cat /var/log/boot.log > /tmp/wsg_ma/boot.log.txt
+cat /var/log/cron.log > /tmp/wsg_ma/cron.txt
+cat /var/log/secure > /tmp/wsg_ma/secure.txt
+cat /var/log/yum.log* | sort -M -r > /tmp/wsg_ma/yum.log.txt
+cat /var/log/anaconda.yum.log > /tmp/wsg_ma/anaconda.yum.log.txt
+du -sh /opt/WCG/ > /tmp/wsg_ma/du_opt_wcg.txt
+du -sh /opt/websense/ > /tmp/wsg_ma/du_opt_websense.txt
+cat /opt/Websense/bin/WebsenseEIMServer.log > /tmp/wsg_ma/opt_Websense_bin_WebsenseEIMServer.log.txt
+tail -10000 /opt/WCG/logs/content_gateway.out > /tmp/wsg_ma/wsg_content_gateway.out_top_10000.txt
+tail -10000 /opt/WCG/logs/mgmtd_client.log > /tmp/wsg_ma/wsg_mgmtd_client.log_top_10000.txt
+tail -10000 /opt/WCG/logs/PolicyEngineInterface.log > /tmp/wsg_ma/wsg_PolicyEngineInterface.log_top_10000.txt
+tail -10000 /opt/WCG/logs/smbadmin.join.log > /tmp/wsg_ma/wsg_smbadmin.join.log_top_10000.txt
+tail -100 /opt/WCG/logs/smbadmin.log > /tmp/wsg_ma/wsg_smbadmin.log_top_100.txt
+tail -100 /opt/WCG/logs/smbadmin.techsupport.log > /tmp/wsg_ma/wsg_smbadmin.techsupport.log_top_100.txt
+tail -100 /opt/WCG/logs/smbadmin.test.log > /tmp/wsg_ma/wsg_smbadmin.test.log_top_100.txt
+tail -10000 /opt/WCG/logs/wcguicert.log > /tmp/wsg_ma/wsg_wcguicert.log_top_10000.txt
+tail -100 /opt/WCG/logs/ant_server.ccastats.collated > /tmp/wsg_ma/wsg_ant_server.ccastats.collated_top_100.txt
+tail -100 /opt/WCG/logs/ant_server.ccastats.sh > /tmp/wsg_ma/wsg_ant_server.ccastats.sh_top_100.txt
+tail -100 /opt/WCG/logs/crl_log_update > /tmp/wsg_ma/wsg_crl_log_update_top_100.txt
+tail -100 /opt/WCG/logs/ddscomm-trace.log > /tmp/wsg_ma/wsg_ddscomm-trace.log_top_100.txt
+tail -100 /opt/WCG/logs/dss_registration.log > /tmp/wsg_ma/wsg_dss_registration.log_top_100.txt
+tail -10000 /opt/WCG/logs/error.log > /tmp/wsg_ma/wsg_error.log_top_10000.txt
+tail -10000 /opt/WCG/logs/extended.log > /tmp/wsg_ma/wsg_extended.log_top_10000.txt
+tail -10000 /opt/websense/PolicyEngine/Logs/CleanupAndArchive.log > /tmp/wsg_ma/pe_CleanupAndArchive.log_top_10000.txt
+tail -10000 /opt/websense/PolicyEngine/Logs/FPR.log > /tmp/wsg_ma/pe_FPR.log_top_10000.txt
+tail -10000 /opt/websense/PolicyEngine/Logs/HealthCheck.log > /tmp/wsg_ma/pe_HealthCheck.log_top_10000.txt
+tail -10000 /opt/websense/PolicyEngine/Logs/HmanagePolicyEngine.log > /tmp/wsg_ma/pe_managePolicyEngine.log_top_10000.txt
+tail -10000 /opt/websense/PolicyEngine/Logs/mgmtd.log > /tmp/wsg_ma/pe_mgmtd.log_top_10000.txt
+tail -10000 /opt/websense/PolicyEngine/Logs/PolicyEngine.log > /tmp/wsg_ma/pe_PolicyEngine.log_top_10000.txt
+tail -10000 /opt/websense/PolicyEngine/Logs/ResourceResolverImporter.log > /tmp/wsg_ma/pe_ResourceResolverImporter.log_top_10000.txt
+tail -10000 /opt/websense/PolicyEngine/Logs/watchdog.log > /tmp/wsg_ma/pe_watchdog.log_top_10000.txt
+sh /opt/WCG/bin/wcg_net_check.sh > /tmp/wsg_ma/wcg_net_check.txt
+sh /opt/WCG/bin/wcg_show_config.sh > /tmp/wsg_ma/wcg_show_config.txt
+sh /opt/WCG/bin/wcg_stats.sh > /tmp/wsg_ma/wcg_stats.txt
+sh /opt/WCG/bin/netcontrol.sh -l > /tmp/wsg_ma/netcontrol.txt
+cp /opt/Websense/bin/*.ini /tmp/wsg_ma/.
+cp /opt/Websense/bin/*.xml /tmp/wsg_ma/.
+cp /opt/Websense/bin/*.log /tmp/wsg_ma/.
+cp /opt/Websense/bin/*.log.* /tmp/wsg_ma/.
+cp /opt/websense/PolicyEngine/*.xml /tmp/wsg_ma/.
+cp /opt/websense/PolicyEngine/Logs/*.* /tmp/wsg_ma/.
+cp /root/WCG/Current/* /tmp/wsg_ma/.
+cp /opt/websense/PolicyEngine/conf/* /tmp/wsg_ma/.
+cp /opt/Websense/log_*.zip /tmp/wsg_ma/.
+cp -r /opt/Websense/BlockPages/ /tmp/wsg_ma/.
+cat /opt/WCG/logs/extended.log | perl /opt/WCG/bin/wcg_extended_stats.pl > /tmp/wsg_ma/wsg_extended_log_stats.txt
+cat /opt/WCG/config/admin_access.config > /tmp/wsg_ma/opt_WCG_config_admin_access.config.txt
+cat /opt/WCG/config/auth_domains.config > /tmp/wsg_ma/opt_WCG_config_auth_domains.config.txt
+cat /opt/WCG/config/auth_rules.config > /tmp/wsg_ma/opt_WCG_config_auth_rules.config.txt
+cat /opt/WCG/config/broker.config > /tmp/wsg_ma/opt_WCG_config_broker.config.txt
+cat /opt/WCG/config/bypass.config > /tmp/wsg_ma/opt_WCG_config_bypass.config.txt
+cat /opt/WCG/config/cache.config > /tmp/wsg_ma/opt_WCG_config_cache.config.txt
+cat /opt/WCG/config/cluster.config > /tmp/wsg_ma/opt_WCG_config_cluster.config.txt
+cat /opt/WCG/config/congestion.config > /tmp/wsg_ma/opt_WCG_config_congestion.config.txt
+cat /opt/WCG/config/dns_prefer_exception.config > /tmp/wsg_ma/opt_WCG_config_dns_prefer_exception.config.txt
+cat /opt/WCG/config/file_types.config > /tmp/wsg_ma/opt_WCG_config_file_types.config.txt
+cat /opt/WCG/config/filter.config > /tmp/wsg_ma/opt_WCG_config_filter.config.txt
+cat /opt/WCG/config/ftp_remap.config > /tmp/wsg_ma/opt_WCG_config_ftp_remap.config.txt
+cat /opt/WCG/config/hosting.config > /tmp/wsg_ma/opt_WCG_config_hosting.config.txt
+cat /opt/WCG/config/icp.config > /tmp/wsg_ma/opt_WCG_config_icp.config.txt
+cat /opt/WCG/config/ip_allow.config > /tmp/wsg_ma/opt_WCG_config_ip_allow.config.txt
+cat /opt/WCG/config/log_hosts.config > /tmp/wsg_ma/opt_WCG_config_log_hosts.config.txt
+cat /opt/WCG/config/logs_xml.config > /tmp/wsg_ma/opt_WCG_config_logs_xml.config.txt
+cat /opt/WCG/config/mgmt_allow.config > /tmp/wsg_ma/opt_WCG_config_mgmt_allow.config.txt
+cat /opt/WCG/config/mimes.config > /tmp/wsg_ma/opt_WCG_config_mimes.config.txt
+cat /opt/WCG/config/parent.config > /tmp/wsg_ma/opt_WCG_config_parent.config.txt
+cat /opt/WCG/config/partition.config > /tmp/wsg_ma/opt_WCG_config_partition.config.txt
+cat /opt/WCG/config/plugin.config > /tmp/wsg_ma/opt_WCG_config_plugin.config.txt
+cat /opt/WCG/config/PolicyEngineInterface.log.config > /tmp/wsg_ma/opt_WCG_config_PolicyEngineInterface.log.config.txt
+cat /opt/WCG/config/records.config > /tmp/wsg_ma/opt_WCG_config_records.config.txt
+cat /opt/WCG/config/remap.config > /tmp/wsg_ma/opt_WCG_config_remap.config.txt
+cat /opt/WCG/config/scan.config > /tmp/wsg_ma/opt_WCG_config_scan.config.txt
+cat /opt/WCG/config/socks.config > /tmp/wsg_ma/opt_WCG_config_socks.config.txt
+cat /opt/WCG/config/socks_server.config > /tmp/wsg_ma/opt_WCG_config_socks_server.config.txt
+cat /opt/WCG/config/splitdns.config > /tmp/wsg_ma/opt_WCG_config_splitdns.config.txt
+cat /opt/WCG/config/ssl_multicert.config > /tmp/wsg_ma/opt_WCG_config_ssl_multicert.config.txt
+cat /opt/WCG/config/storage.config > /tmp/wsg_ma/opt_WCG_config_storage.config.txt
+cat /opt/WCG/config/update.config > /tmp/wsg_ma/opt_WCG_config_update.config.txt
+cat /opt/WCG/config/vaddrs.config > /tmp/wsg_ma/opt_WCG_config_vaddrs.config.txt
+cat /opt/WCG/config/wccp.config > /tmp/wsg_ma/opt_WCG_config_wccp.config.txt
+ls -lhaiRt -F --full-time /opt/ > /tmp/wsg_ma/all_files.txt
+rm -fr /tmp/wsg_ma/mrtg
+mkdir /tmp/wsg_ma/mrtg
+cp /opt/WCG/ui/mrtg/*.png /tmp/wsg_ma/mrtg/.
+timeout 60 tcpdump -vv -x -s 0 -i any ! port 22 -w /tmp/wsg_ma/wcg.pcap
+rm -fr /tmp/`hostname`_`date "+%y%m%d"`.tar.gz
+mv /tmp/wsg_ma /tmp/`hostname`_`date "+%y%m%d"`
+export GZIP=-9
+tar -zcvf /tmp/`hostname`_`date "+%y%m%d"`.tar.gz /tmp/`hostname`_`date "+%y%m%d"`
+rm -fr /tmp/`hostname`_`date "+%y%m%d"`
+#rm -fr /tmp/`hostname`_`date "+%y%m%d"`.zip
+#zip -9 -r /tmp/`hostname`_`date "+%y%m%d"`.zip /tmp/wsg_ma/*
