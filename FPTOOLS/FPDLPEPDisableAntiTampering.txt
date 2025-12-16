@@ -1,0 +1,17 @@
+@ECHO OFF
+
+SET "psCommand=powershell -Command "$pword = read-host 'Enter DLP Agent PASSWORD' -AsSecureString ; ^
+    $BSTR=[System.Runtime.InteropServices.Marshal]::SecureStringToBSTR($pword); ^
+        [System.Runtime.InteropServices.Marshal]::PtrToStringAuto($BSTR)""
+for /f "usebackq delims=" %%p in (`%psCommand%`) do SET DLPAGENTPASSWORD=%%p
+
+
+"C:\Program Files\Websense\Websense Endpoint\WDEUtil" -set DisableAntiTampering=true -password "%DLPAGENTPASSWORD%"
+
+"C:\Program Files\Websense\Websense Endpoint\WDEUtil" -stop all -password "%DLPAGENTPASSWORD%"
+
+"C:\Program Files\Websense\Websense Endpoint\WDEUtil" -set DisableAntiTampering=true -password "%DLPAGENTPASSWORD%"
+
+
+PAUSE
+EXIT

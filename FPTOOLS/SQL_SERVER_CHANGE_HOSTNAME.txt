@@ -1,0 +1,6 @@
+EXEC sp_dropserver '<old_name>';
+GO
+EXEC sp_addserver '<new_name>', local;
+GO
+
+SELECT @@SERVERNAME AS 'Server Name';

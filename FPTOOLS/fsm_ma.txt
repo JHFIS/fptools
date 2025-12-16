@@ -1,0 +1,8 @@
+msinfo32 /nfo .\%COMPUTERNAME%.nfo
+systeminfo > .\%COMPUTERNAME%_systeminfo.txt
+netstat -ano > .\%COMPUTERNAME%_netstat_ano.txt
+tasklist /M > .\%COMPUTERNAME%_tasklist.txt
+wevtutil.exe epl application .\%COMPUTERNAME%_application.evtx
+wevtutil.exe epl Security .\%COMPUTERNAME%_security.evtx
+wevtutil.exe epl System .\%COMPUTERNAME%_system.evtx
+scd_x64.exe .\
