@@ -1,0 +1,9 @@
+﻿
+Nav control image	MIP標籤類型
+Nav control image	信用卡號碼
+Nav control image	加密檔案類型
+Nav control image	姓名和臺灣地址
+Nav control image	姓名和臺灣手機市話號碼
+Nav control image	姓名和電子郵件地址
+Nav control image	新舊居留證
+Nav control image	臺灣身份證號碼

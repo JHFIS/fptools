@@ -1,0 +1,8 @@
+﻿09#婚姻狀況
+
+說明：
+		符合「未婚」、「已婚」、「單身」、「離婚」的關鍵字。
+　　　　規則的計算門檻，通常會選擇「Count all matches, even duplicates」。
+
+Pattern：
+(\s|^)((\x{5DF2}|\x{672A}|\x{96E2})\x{5A5A}|\x{55AE}\x{8EAB})(\s|$)
