@@ -1,0 +1,19 @@
+USE DatabaseName
+
+SELECT   
+    t.NAME AS 資料表名稱,  
+    p.rows AS 筆數,  
+    SUM(a.total_pages) * 8 /1024 AS 資料表空間MB,   
+    SUM(a.used_pages) * 8 /1024 AS 已使用空間MB,   
+    (SUM(a.total_pages) - SUM(a.used_pages)) * 8  /1024 AS 未使用空間MB  
+	,o.modify_date 修改日期
+FROM sys.tables t INNER JOIN sys.indexes i ON t.OBJECT_ID = i.object_id  
+INNER JOIN sys.partitions p ON i.object_id = p.OBJECT_ID AND i.index_id = p.index_id  
+INNER JOIN sys.allocation_units a ON p.partition_id = a.container_id  
+INNER JOIN sys.all_objects o ON o.OBJECT_ID = i.OBJECT_ID
+WHERE   
+    t.NAME NOT LIKE 'dt%' AND t.is_ms_shipped = 0 AND i.OBJECT_ID > 255   
+GROUP BY   
+    t.Name, p.Rows ,o.modify_date 
+ORDER BY   
+    已使用空間MB desc  
