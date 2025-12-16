@@ -1,12 +1,12 @@
 USE DatabaseName
 
 SELECT   
-    t.NAME AS ¸ê®Æªí¦WºÙ,  
-    p.rows AS µ§¼Æ,  
-    SUM(a.total_pages) * 8 /1024 AS ¸ê®ÆªíªÅ¶¡MB,   
-    SUM(a.used_pages) * 8 /1024 AS ¤w¨Ï¥ÎªÅ¶¡MB,   
-    (SUM(a.total_pages) - SUM(a.used_pages)) * 8  /1024 AS ¥¼¨Ï¥ÎªÅ¶¡MB  
-	,o.modify_date ­×§ï¤é´Á
+    t.NAME AS è³‡æ–™è¡¨åç¨±,  
+    p.rows AS ç­†æ•¸,  
+    SUM(a.total_pages) * 8 /1024 AS è³‡æ–™è¡¨ç©ºé–“MB,   
+    SUM(a.used_pages) * 8 /1024 AS å·²ä½¿ç”¨ç©ºé–“MB,   
+    (SUM(a.total_pages) - SUM(a.used_pages)) * 8  /1024 AS æœªä½¿ç”¨ç©ºé–“MB  
+	,o.modify_date ä¿®æ”¹æ—¥æœŸ
 FROM sys.tables t INNER JOIN sys.indexes i ON t.OBJECT_ID = i.object_id  
 INNER JOIN sys.partitions p ON i.object_id = p.OBJECT_ID AND i.index_id = p.index_id  
 INNER JOIN sys.allocation_units a ON p.partition_id = a.container_id  
@@ -16,4 +16,4 @@ WHERE
 GROUP BY   
     t.Name, p.Rows ,o.modify_date 
 ORDER BY   
-    ¤w¨Ï¥ÎªÅ¶¡MB desc  
+    å·²ä½¿ç”¨ç©ºé–“MB desc  
