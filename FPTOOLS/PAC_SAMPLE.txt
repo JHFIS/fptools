@@ -1,0 +1,58 @@
+PAC URL : http://Proxy:8083/
+
+==================== SAMPLE 01 START ====================
+// https://findproxyforurl.com/example-pac-file/
+
+function FindProxyForURL(url, host) { 
+    if (isPlainHostName(host) || 
+        shExpMatch(host, "*.local") || 
+        isInNet(dnsResolve(host), "10.0.0.0", "255.0.0.0") || 
+        isInNet(dnsResolve(host), "172.16.0.0", "255.240.0.0") || 
+        isInNet(dnsResolve(host), "192.168.0.0", "255.255.0.0") || 
+        isInNet(dnsResolve(host), "127.0.0.0", "255.255.255.0")) 
+        return "DIRECT"; 
+
+    return "PROXY 192.168.190.105:8080"; }
+
+==================== SAMPLE 01 START ====================
+
+==================== SAMPLE XX START ====================
+
+// ChatGPT 20240517
+
+function FindProxyForURL(url, host) {
+    // Define the proxy server
+    var proxy = "PROXY 192.168.190.105:8080";
+
+    // Define the private IP ranges
+    var privateIPs = [
+        /^(0|10|127)\./, // 0.0.0.0 - 0.255.255.255, 10.0.0.0 - 10.255.255.255, 127.0.0.0 - 127.255.255.255
+        /^(169\.254|172\.(1[6-9]|2[0-9]|3[01]))\./, // 169.254.0.0 - 169.254.255.255, 172.16.0.0 - 172.31.255.255
+        /^192\.168\./, // 192.168.0.0 - 192.168.255.255
+        /^224\./, // 224.0.0.0 - 224.255.255.255
+        /^240\./ // 240.0.0.0 - 255.255.255.255
+    ];
+
+    // Check if the IP address is in the private range
+    for (var i = 0; i < privateIPs.length; i++) {
+        if (privateIPs[i].test(host)) {
+            return "DIRECT";
+        }
+    }
+
+    // Default to using the proxy for all other addresses
+    return proxy;
+}
+
+
+==================== SAMPLE XX START ====================
+
+==================== SAMPLE XX START ====================
+==================== SAMPLE XX START ====================
+
+==================== SAMPLE XX START ====================
+==================== SAMPLE XX START ====================
+
+==================== SAMPLE XX START ====================
+==================== SAMPLE XX START ====================
+
