@@ -1,0 +1,16 @@
+dotNETFx35:
+
+Source:
+Install-WindowsFeature Net-Framework-Core -source \\network\share\sxs
+
+Check:
+Get-WindowsFeature
+
+CMD:
+DISM /Online /Enable-Feature /FeatureName:NetFx3 /All
+
+
+Telnet Client:
+
+CMD:
+DISM /online /Enable-Feature /FeatureName:TelnetClient
