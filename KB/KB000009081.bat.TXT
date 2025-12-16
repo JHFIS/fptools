@@ -1,0 +1,63 @@
+﻿@echo off
+setlocal enabledelayedexpansion
+
+echo.
+echo Checking installation directory...
+echo.
+
+:: 設定可能的安裝路徑
+set "INSTALL_DIR="
+if exist "C:\Program Files (x86)\Websense\Web Security" set "INSTALL_DIR=C:\Program Files (x86)\Websense\Web Security"
+if exist "D:\Program Files (x86)\Websense\Web Security" set "INSTALL_DIR=D:\Program Files (x86)\Websense\Web Security"
+
+:: 如果找不到安裝目錄，則退出
+if "%INSTALL_DIR%"=="" (
+    echo ERROR: Websense Web Security is not installed on C:\ or D:\. Exiting...
+    exit /b 1
+)
+
+echo Websense Web Security found at: %INSTALL_DIR%
+echo.
+
+:: 設定目錄變數
+set "BASE_DIR=%INSTALL_DIR%\apache\conf\ssl"
+set "OUTPUT_DIR=%BASE_DIR%\output"
+
+:: 執行批次檔案
+echo Running batch files...
+cd /d "%BASE_DIR%\automation"
+for %%F in (s1_newreq.bat s2_server_key.bat s3_server_crt.bat s4_server_p12.bat s5_server_cert_txt.bat) do (
+    echo Running %%F...
+    call %%F
+)
+
+:: 檢查輸出文件是否更新
+echo Checking output directory...
+for %%F in (server.key server.crt cakey.pem manager.p12 cert.txt) do (
+    if not exist "%OUTPUT_DIR%\%%F" (
+        echo ERROR: Missing file %%F in output directory! Exiting...
+        exit /b 1
+    )
+)
+
+:: 複製文件到對應目錄
+echo Copying files...
+xcopy /Y "%OUTPUT_DIR%\server.key" "%BASE_DIR%\ssl.key\"
+xcopy /Y "%OUTPUT_DIR%\server.crt" "%BASE_DIR%\ssl.crt\"
+xcopy /Y "%OUTPUT_DIR%\cakey.pem" "%BASE_DIR%\private\"
+xcopy /Y "%OUTPUT_DIR%\manager.p12" "%INSTALL_DIR%\tomcat\conf\keystore\tomcat\"
+xcopy /Y "%OUTPUT_DIR%\cert.txt" "%INSTALL_DIR%\Manager\OnlineHelp\en\certificateSupport\"
+
+:: 重新啟動服務
+echo Restarting services...
+net stop "WebsenseManagerTomcat"
+net stop "Apache2Websense"
+net stop "WebsenseRtmTomcat"
+net start "WebsenseRtmTomcat"
+net start "Apache2Websense"
+net start "WebsenseManagerTomcat"
+
+echo.
+echo All tasks completed successfully!
+echo.
+pause
