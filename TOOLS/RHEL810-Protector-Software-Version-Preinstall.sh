@@ -1,0 +1,88 @@
+Pre-installation requirements
+Before installing the Forcepoint DLP Protector software, you have to ensure the requirements are met.
+■ Forcepoint DLP Protector software package is supported on CentOS 7.6 or CentOS 7.9, or on Red Hat
+Enterprise Linux 7.5 to 7.9 and Red Hat Enterprise Linux 8 versions.
+Note
+■ Use of Red Hat Enterprise Linux 8 requires a license key upon installation. Subscriber must
+separately purchase a license key to Red Hat Enterprise Linux 8 through Red Hat’s official
+channels.
+■ This Red Hat Enterprise Linux 8 release does not support the following features:
+■ Microsoft RMS Decryption
+■ Forcepoint DLP REST API
+■ For software package deployment, verify that the outputs of the two commands match:
+"hostname -f": --fqdn, --long long host name (FQDN)
+"hostname -s": --short short host name
+If the outputs match, you can continue the installation.
+If the outputs do not match, the fully-qualified domain name (FQDN) (long) should be changed to match the
+short hostname. To change the FQDN you must open the hosts file located in /etc/hosts as root and add the
+following entry to the hosts file:
+<Protector IP address> <New Hostname> (match to the short hostname, hostname -s)
+■ At least two network interface cards are required.<注意項目>
+■ For hardware requirements, see Protector Hardware Requirements.<注意項目>
+■ The file system where /opt directory resides must have a minimum of 45GB disk space.<注意項目>
+■ SELinux must be disabled before the software protector installation.<注意項目>
+■ The installation will check whether firewall or NetworkManager are running and disable them if they are running.<安裝過程可選>
+
+
+#掛載光碟與建立RHEL810DVD目錄
+sudo mount -t iso9660 -o ro /dev/cdrom /media
+sudo mkdir /RHEL810DVD
+sudo cp -R /media/* /RHEL810DVD/
+sudo umount /media
+
+#YUM REPO:
+sudo cp /RHEL810DVD/media.repo /etc/yum.repos.d/
+sudo chmod 644 /etc/yum.repos.d/media.repo
+sudo vi /etc/yum.repos.d/media.repo 
+
+[InstallMedia-BaseOS]
+name=Red Hat Enterprise Linux 8 - BaseOS
+metadata_expire=-1
+gpgcheck=1
+enabled=1
+baseurl=file:///RHEL810DVD/BaseOS/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+[InstallMedia-AppStream]
+name=Red Hat Enterprise Linux 8 - AppStream
+metadata_expire=-1
+gpgcheck=1
+enabled=1
+baseurl=file:///RHEL810DVD/AppStream/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+[InstallMedia-BaseOS-REDHAT]
+name=Red Hat Enterprise Linux 8 - BaseOS - REDHAT
+metadata_expire=-1
+gpgcheck=1
+enabled=1
+baseurl=https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/baseos/os/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+[InstallMedia-AppStream-REDHAT]
+name=Red Hat Enterprise Linux 8 - AppStream - REDHAT
+metadata_expire=-1
+gpgcheck=1
+enabled=1
+baseurl=https://cdn-ubi.redhat.com/content/public/ubi/dist/ubi8/8/x86_64/appstream/os/
+gpgkey=file:///etc/pki/rpm-gpg/RPM-GPG-KEY-redhat-release
+
+#RHEL訂閱停止
+sudo vi /etc/yum/pluginconf.d/subscription-manager.conf
+enabled=0                    #將enabled由1改為0
+
+#安裝前確認和安裝
+sudo hostname -f
+sudo hostname -s
+sudo hostnamectl set-hostname <Hostname>
+sudo vi /etc/selinux/config
+SELINUX=disabled
+sudo dnf clean all
+sudo dnf list
+sudo dnf upgrade rpm rpm-libs rpm-plugin-systemd-inhibit --allowerasing
+sudo dnf install perl python2 python3 libgsf libnsl postfix
+sudo dnf module enable python27
+
+
+
+
